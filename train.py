@@ -3,19 +3,16 @@ import os
 import cv2
 import numpy as np
 import tensorflow as tf
-import matplotlib.pyplot as plt
-from keras.layers.pooling import MaxPool2D
 from sklearn.model_selection import train_test_split
 from tensorflow.python.keras import Input, Model
-from tensorflow.python.keras.layers import Conv2D, BatchNormalization, Flatten, Dense
+from tensorflow.python.keras.layers import Flatten, Dense
 from tensorflow.keras import layers
-from PIL import Image
 
 images = []
 genders = []
 races = []
 
-# i = 0
+# UTK FACE DATASET
 # for image_name in os.listdir('UTKFace'):
 #     features = image_name.split('_')
 #     gender = features[1]
@@ -24,12 +21,10 @@ races = []
 #     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 #     images.append(np.array(image))
 #     genders.append(np.array(gender))
-#     i += 1
-#     if i > 20:
-#         break
 #     if 'jpg' in race:
 #         race = 0
 #     races.append(np.array(race))
+
 rootdir = 'awe'
 for subdir, dirs, files in os.walk(rootdir):
     for dir in dirs:
@@ -59,9 +54,6 @@ for subdir, dirs, files in os.walk(rootdir):
                 if eth > 8:
                     eth = 0
                 races.append(np.array(eth))
-
-print(races)
-
 
 genders = np.array(genders, dtype=np.uint64)
 races = np.array(races, dtype=np.uint64)
