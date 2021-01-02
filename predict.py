@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 model_path = "./model.h5"
 model = load_model(model_path)
-img_path = "img_path"
+img_path = "test.png"
 
 ear_left_cascade = cv2.CascadeClassifier('haarcascade_mcs_leftear.xml')
 ear_right_cascade = cv2.CascadeClassifier('haarcascade_mcs_rightear.xml')
@@ -30,6 +30,7 @@ for (x, y, w, h) in right_ear:
     predict = model.predict(np.array(img).reshape(-1, 200, 200, 3))
     gender = np.argmax(predict[0])
     race = np.argmax(predict[1])
+
 if len(right_ear) != 0 or len(left_ear) != 0:
     if gender == 1:
         gender = 'Man'
