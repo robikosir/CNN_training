@@ -7,12 +7,12 @@ from sklearn.model_selection import train_test_split
 from tensorflow.python.keras import Input, Model
 from tensorflow.python.keras.layers import Flatten, Dense
 from tensorflow.keras import layers
+from keras.callbacks import CSVLogger
 
 images = []
 genders = []
 races = []
 
-# UTK FACE DATASET
 # for image_name in os.listdir('UTKFace'):
 #     features = image_name.split('_')
 #     gender = features[1]
@@ -81,5 +81,6 @@ race_l = Dense(7, activation="softmax")(race_l)
 model = Model(inputs=inputs, outputs=[gender_l, race_l])
 model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics='accuracy')
 
-save = model.fit(x_train, [y_train, y_train2], validation_data=(x_test, [y_test, y_test2]), epochs=100)
+csv_logger = CSVLogger("plots/AWE.csv", append=True)
+save = model.fit(x_train, [y_train, y_train2], validation_data=(x_test, [y_test, y_test2]), epochs=100, callbacks=[csv_logger])
 model.save("model.h5")
