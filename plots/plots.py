@@ -1,9 +1,14 @@
 import csv
+import sys
+
 import matplotlib.pyplot as plt
 
 gender_acc = []
 race_acc = []
-with open('AWE.csv') as csv_file:
+
+file = sys.argv[1]
+
+with open(f'plots/{file}') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
