@@ -83,4 +83,4 @@ model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=
 
 csv_logger = CSVLogger("plots/AWE.csv", append=True)
 save = model.fit(x_train, [y_train, y_train2], validation_data=(x_test, [y_test, y_test2]), epochs=100, callbacks=[csv_logger])
-model.save("model.h5")
+model.save("AWEdataset.h5")

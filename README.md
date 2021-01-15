@@ -15,12 +15,19 @@ This saves your model to ˙mode.h5`. The model is now ready to use in our predic
 
 This saves the image in `/results` with the corresponding gender and ethnicity information
 
-## Results
+## Results on training set
 Running at `epochs=100`:
 - gender accuracy: 99%
 - ethnicity accuracy: 94%
 -----
-## Dataset comparison
+## Results on testing set
+AWE dataset
+- gender accuracy: 64%
+- ethnicity accuracy: 55%
+UKTFace dataset
+- gender accuracy: 38%
+- ethnicity accuracy: 52%
+## Dataset comparison based on training set
 To get the plots run `python plots/plots.py {AWE/UTKFace}.csv`
 ### UTKFace dataset
 ![alt text](https://github.com/123robi/CNN_training/blob/main/plots/UTKPlot.png?raw=true)
