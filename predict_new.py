@@ -77,34 +77,35 @@ for subdir, dirs, files in os.walk(rootdir):
 print(f'gender {correct_gender}- {wrong_gender} = {correct_gender/(wrong_gender+correct_gender)}')
 print(f'eth {correct_eth}- {wrong_eth} = {correct_eth/(wrong_eth+correct_eth)}')
 
-# rootdir = 'testing_db_utk'
-# correct_gender = 0
-# correct_eth = 0
-# wrong_gender = 0
-# wrong_eth = 0
-# face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
-# for image_name in os.listdir(rootdir):
-#     features = image_name.split('_')
-#     gender_main = features[1]
-#     eth = features[2]
-#     image = cv2.imread(f'testing_db_utk/{image_name}')
-#     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-#     predict = model.predict(np.array(image).reshape(-1, 200, 200, 3))
-#     gender = np.argmax(predict[0])
-#     race = np.argmax(predict[1])
-#     try:
-#         if int(gender) == int(gender_main):
-#             correct_gender += 1
-#         else:
-#             wrong_gender += 1
-#
-#         if int(race) == int(eth):
-#             correct_eth += 1
-#         else:
-#             wrong_eth += 1
-#     except:
-#         pass
-#
-# print(f'gender {correct_gender}- {wrong_gender} = {correct_gender/(wrong_gender+correct_gender)}')
-# print(f'eth {correct_eth}- {wrong_eth} = {correct_eth/(wrong_eth+correct_eth)}')
+model_path = "model.h5.h5"
+rootdir = 'testing_db_utk'
+correct_gender = 0
+correct_eth = 0
+wrong_gender = 0
+wrong_eth = 0
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
+for image_name in os.listdir(rootdir):
+    features = image_name.split('_')
+    gender_main = features[1]
+    eth = features[2]
+    image = cv2.imread(f'testing_db_utk/{image_name}')
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    predict = model.predict(np.array(image).reshape(-1, 200, 200, 3))
+    gender = np.argmax(predict[0])
+    race = np.argmax(predict[1])
+    try:
+        if int(gender) == int(gender_main):
+            correct_gender += 1
+        else:
+            wrong_gender += 1
+
+        if int(race) == int(eth):
+            correct_eth += 1
+        else:
+            wrong_eth += 1
+    except:
+        pass
+
+print(f'gender {correct_gender}- {wrong_gender} = {correct_gender/(wrong_gender+correct_gender)}')
+print(f'eth {correct_eth}- {wrong_eth} = {correct_eth/(wrong_eth+correct_eth)}')
 
