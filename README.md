@@ -1,4 +1,4 @@
-# CNN training and evaulation
+# CNN training and evaluation
 This project is used to recognize ethnicity and gender from EAR. The [Paper](https://github.com/123robi/CNN_training/blob/main/paper.pdf) explains the way the project was created and in the end compares two different datasets (AWE Ear dataset and UTKFace dataset) and the gender and race accuracy of each model.
 ## Dataset
 In order to run training model, you have to download following [Dataset.](http://awe.fri.uni-lj.si/datasets.html) In case you don't have premission to do so, feel free to use any other biometric dataset intended for recognition dataset that has annotations that you want to train on.
