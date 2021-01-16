@@ -9,11 +9,13 @@ First run `pip install -r requirements.txt`
 
 This saves your model to ˙mode.h5`. The model is now ready to use in our prediciton python script.
 
-##Predict
+## Predict
 - Load your images or choose the one that is already uploaded to the root directory (`test.png`)
 - Run `python predict.py`
 
 This saves the image in `/results` with the corresponding gender and ethnicity information
+
+To run prediction on the half of each database run `python predict_new.py` that runs prediciton on the both databases adn returns accuracy. This may take a while. However, you must first generate corresponding models, and save them to model.h5 and AWEdataset.h5
 
 ## Results on training set
 Running at `epochs=100`:
@@ -24,6 +26,7 @@ Running at `epochs=100`:
 AWE dataset
 - gender accuracy: 64%
 - ethnicity accuracy: 55%
+
 UKTFace dataset
 - gender accuracy: 38%
 - ethnicity accuracy: 52%
